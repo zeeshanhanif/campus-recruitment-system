@@ -5,15 +5,17 @@ import { HttpModule } from '@angular/http';
 import {RouterModule, Routes} from '@angular/router'
 import { MaterialModule } from '@angular/material';
 import { AngularFireModule, AuthProviders, AuthMethods  } from 'angularfire2';
-import {LoggedInGuard} from './providers/loggedin-guard'
-import {environment} from '../environments/environment'
+import {LoggedInGuard} from './providers/loggedin-guard';
+import {environment} from '../environments/environment';
+import { NgReduxModule } from 'ng2-redux';
+import { StoreModule } from './store';
 
 
 
 import { AppComponent } from './app.component';
 //import {HomeComponent} from './components/home/home.component'
-import {AppRoutes} from './routes'
-import {Components} from './components'
+import {AppRoutes} from './routes';
+import {Components} from './components';
 
 const myFirebaseAuthConfig = {
   provider: AuthProviders.Password,
@@ -31,7 +33,9 @@ const myFirebaseAuthConfig = {
     HttpModule,
     RouterModule.forRoot(AppRoutes),
     MaterialModule.forRoot(),
-    AngularFireModule.initializeApp(environment.firebaseConfig,myFirebaseAuthConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig,myFirebaseAuthConfig),
+    NgReduxModule,
+    StoreModule
   ],
   providers: [LoggedInGuard],
   bootstrap: [AppComponent]

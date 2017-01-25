@@ -1,3 +1,12 @@
 <p>
   home works!
 </p>
+<h1>Counter Demo</h1>
+<p>
+  <button (click)="increment()">+</button>
+  <button (click)="decrement()">-</button>
+  
+  Clicked: {{ (counter$ | async)?.counter.counter }} times<br>
+  
+</p>
+
