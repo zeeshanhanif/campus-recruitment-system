@@ -27,7 +27,7 @@ export class SignupContainer implements OnInit {
       'firstName': ['',Validators.required],
       'email': ['',Validators.required],
       'password': ['',Validators.required],
-      'accountType': [''], // 1 = Student, 2= Company, 3 = Admin
+      'accountType': ['1'], // 1 = Student, 2= Company, 3 = Admin
     });
     
     //redux not working for me
