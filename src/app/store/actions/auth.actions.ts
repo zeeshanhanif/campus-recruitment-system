@@ -19,7 +19,10 @@ export class AuthActions {
     static LOGIN_FAIL: string = 'LOGIN_FAIL';
     static LOGOUT_FAIL: string = 'LOGOUT_FAIL';
     static LOGOUT_SUCCESS: string = 'LOGOUT_SUCCESS';
+
+    static SET_CURRENT_USER_DATA: string = 'SET_CURRENT_USER_DATA';
     
+    static NULL: string = 'NULL';
 
     
     constructor(private ngRedux: NgRedux<IAppState>) {   

@@ -20,7 +20,7 @@ export class SignupContainer implements OnInit {
   isError: boolean;
   errorMessage: String;
   
-  @select(['auth', 'user']) user$: Observable<any>
+  //@select(['auth', 'user']) user$: Observable<any>
   constructor(private router: Router, private fb: FormBuilder,
     private authService: AuthService,private authAction: AuthActions) {
      this.myForm = fb.group({
@@ -31,7 +31,7 @@ export class SignupContainer implements OnInit {
     });
     
     //redux not working for me
-    
+    /*
     this.user$.subscribe(val=>{
       console.log("subs:",val);
       //this.router.navigate(['/signin']);
@@ -40,7 +40,7 @@ export class SignupContainer implements OnInit {
     },()=>{
       console.log("comleted");
     })
-    
+    */
 
   }
 

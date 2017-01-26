@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NgRedux, select } from 'ng2-redux';
+import { Observable} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+    @select(['auth','isLoggedin']) isLoggedin$ :Observable<any>;
+    constructor() {
+    }
 }

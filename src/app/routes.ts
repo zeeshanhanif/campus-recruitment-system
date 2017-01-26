@@ -6,7 +6,8 @@ import {
     SigninContainer, 
     AdminContainer,
     CompanyContainer,
-    StudentContainer
+    StudentContainer,
+    RootContainer
 } from "./containers";
 import {     
     HomeComponent, 
@@ -34,8 +35,13 @@ export const AppRoutes: Routes = [
             {path:'child2', component: Child2Component},
         ]
     },
-     {path:'admin', component: AdminContainer},
-      {path:'compnay', component: CompanyContainer},
-       {path:'student', component: StudentContainer},
-        {path:'root', component: RootComponent},
+    
+    {path:'root', component: RootContainer, 
+        canActivate: [LoggedInGuard],
+        children: [
+            {path:'admin', component: AdminContainer},
+            {path:'company', component: CompanyContainer},
+            {path:'student', component: StudentContainer},
+        ]
+    },
 ];

@@ -24,7 +24,8 @@ export interface IAppState {
 }
 
 export const AppReducer = combineReducers<IAppState>({
-  counter: counterReducer,  
+  counter: counterReducer,
+  auth:authReducer 
 });
 
 
@@ -52,7 +53,8 @@ export class StoreModule {
     const middleware = [
       createEpicMiddleware(this.counterEpics.increment),
       createEpicMiddleware(this.counterEpics.decrement),
-      createEpicMiddleware(this.authEpics.register)
+      createEpicMiddleware(this.authEpics.login),      
+      createEpicMiddleware(this.authEpics.getCurrentUserData)
       
 
       // More middleware here

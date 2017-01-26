@@ -17,12 +17,11 @@ export class LoggedInGuard implements CanActivate {
         console.log('AuthGuard: canActivate');
         return this.af.auth.take(1).map(authState => {
             if (authState) {
-                console.log(authState);
-                console.log('authGuard: authenticated');
+                console.log('authGuard: authenticated',authState);
                 return true;
             } else {
                 console.log('authGuard: not authenticated');
-                //this.router.navigate(['/custom']);
+                this.router.navigate(['/signin']);
                 return false;
             }
         })
