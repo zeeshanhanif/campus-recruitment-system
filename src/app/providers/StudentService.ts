@@ -16,5 +16,12 @@ export class StudentService {
     updateInfo(userId:string, userDetail: any){
         this.af.database.object("/users/"+userId).update(userDetail);
     }
+
+    getStudentsList(){
+        return this.af.database.list("/users",{query: {
+                        orderByChild: 'accountType',
+                        equalTo: '1' 
+                    }});
+    }
    
 }
