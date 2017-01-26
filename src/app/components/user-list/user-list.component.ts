@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router'
 import { Router } from '@angular/router'
 import {Job} from '../../models'
+import {User} from '../../models'
 
 import { Observable} from 'rxjs';
 import { IAppState,AuthActions } from '../../store';
@@ -22,8 +23,19 @@ export class UserListComponent implements OnInit {
 
   users: FirebaseListObservable<any>;
   @select(['auth','user']) user$ :Observable<any>;
-  type: string;
+  accountType: string;
   constructor(private studentService: StudentService,private route: ActivatedRoute) {
+      this.user$.subscribe(user=> {
+            this.accountType = user.accountType;
+            if(user.accountType=="1"){
+                this.users = this.studentService.getUserList("2");
+            }
+            else if(user.accountType=="2"){
+                this.users = this.studentService.getUserList("1");
+            }
+        })   
+
+    /*
     route.params.subscribe(params=> {
       this.type = params['type'];
 
@@ -35,10 +47,17 @@ export class UserListComponent implements OnInit {
                 this.users = this.studentService.getUserList("2");
             }
         })     
-    })   
+    })   */
    }
 
   ngOnInit() {
+  }
+
+  viewDetail(user: User){
+    this.studentService.setCurrentDisplayUser(user);
+    //this.router.navigate(['../jobDetail']);
+    // [routerLink]="['../job-view']"
+    console.log("User = ",user);
   }
 
 }

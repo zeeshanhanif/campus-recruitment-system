@@ -17,7 +17,9 @@ import {
     StudentDetailComponent,
     PostJobComponent,
     ListJobsComponent,
-    UserListComponent
+    UserListComponent,
+    JobViewComponent,
+    UserViewComponent
 } from "./components";
 
 export const AppRoutes: Routes = [
@@ -40,13 +42,16 @@ export const AppRoutes: Routes = [
                         children: [
                             {path:'post-job', component: PostJobComponent},
                             {path:'list-jobs', component: ListJobsComponent},
-                            {path:'student-list/:type', component: UserListComponent}
+                            {path:'student-list', component: UserListComponent},
+                            {path:'userDetail', component: UserViewComponent}
                         ]},
             {path:'student', component: StudentContainer,
                         children: [
                             {path:'student-detail', component: StudentDetailComponent},
-                            {path:'company-list/:type', component: UserListComponent},
+                            {path:'company-list', component: UserListComponent},
                             {path:'list-jobs', component: ListJobsComponent},
+                            {path:'jobDetail', component: JobViewComponent},
+                            {path:'userDetail', component: UserViewComponent}
                         ]},
         ]
     },

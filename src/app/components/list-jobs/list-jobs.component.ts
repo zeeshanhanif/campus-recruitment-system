@@ -4,8 +4,7 @@ import {StudentService} from '../../providers';
 import {CompanyService} from '../../providers';
 import {AdminService} from '../../providers';
 
-import {ActivatedRoute} from '@angular/router'
-import { Router } from '@angular/router'
+import {ActivatedRoute,Router} from '@angular/router'
 import {Job} from '../../models'
 
 import { Observable} from 'rxjs';
@@ -23,8 +22,9 @@ export class ListJobsComponent implements OnInit {
 
   jobs: FirebaseListObservable<any>;
   @select(['auth','user']) user$ :Observable<any>;
-  allJobs: boolean;
-  constructor(private companyService: CompanyService,private route: ActivatedRoute) {
+  
+  constructor(private companyService: CompanyService,private route: ActivatedRoute,
+          private router: Router) {
 
     this.user$.subscribe(user=> {
       if(user.accountType=="2"){
@@ -35,26 +35,15 @@ export class ListJobsComponent implements OnInit {
       }
       
     })
-    
-/*
-     route.params.subscribe(params=> {
-      this.all = params['all'];
-
-        this.user$.subscribe(user=> {
-            if(this.type=="company"){
-                this.users = this.studentService.getUserList("1");
-            }
-            else if(this.type=="student"){
-                this.users = this.studentService.getUserList("2");
-            }
-        })     
-    })*/
   }
 
+  viewDetail(job: Job){
+    this.companyService.setCurrentJob(job);
+    //this.router.navigate(['../jobDetail']);
+    // [routerLink]="['../job-view']"
+    console.log("Job = ",job);
+  }
 
-  
-      
-   
 
   ngOnInit() {
   }

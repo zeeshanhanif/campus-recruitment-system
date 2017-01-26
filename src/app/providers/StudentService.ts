@@ -9,6 +9,7 @@ import "rxjs/add/operator/map";
 @Injectable()
 export class StudentService {
     
+    currentDisplayUser: User;
     constructor(public af: AngularFire,private router: Router) {
         //this.users = this.af.database.object("/users")
     }
@@ -22,6 +23,14 @@ export class StudentService {
                         orderByChild: 'accountType',
                         equalTo: accountType 
                     }});
+    }
+
+    setCurrentDisplayUser(user: User){
+        this.currentDisplayUser = user;
+    }
+
+    getCurrentDisplayUser(){
+        return this.currentDisplayUser;
     }
 
 

@@ -3,12 +3,14 @@ import { AngularFire,FirebaseListObservable ,FirebaseObjectObservable} from 'ang
 import { Router } from '@angular/router'
 import { Observable,Observer } from 'rxjs';
 import { User } from '../models'
+import { Job } from '../models'
 import "rxjs/add/operator/take";
 import "rxjs/add/operator/map";
 
 @Injectable()
 export class CompanyService {
     
+    currentJob : Job
     constructor(public af: AngularFire,private router: Router) {
         //this.users = this.af.database.object("/users")
     }
@@ -32,8 +34,14 @@ export class CompanyService {
         else{
             return this.af.database.list("/jobs");
         }
-       
-        
+    }
+
+    setCurrentJob(job: Job){
+        this.currentJob = job;
+    }
+
+    getCurrentJob(){
+        return this.currentJob;
     }
 
 

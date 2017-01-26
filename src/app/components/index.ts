@@ -14,6 +14,8 @@ import { PostJobComponent } from './post-job/post-job.component';
 import { ListJobsComponent } from './list-jobs/list-jobs.component';
 import { UserListComponent } from './user-list/user-list.component';
 
+import { JobViewComponent } from './job-view/job-view.component';
+import { UserViewComponent } from './user-view/user-view.component';
 
 export const Components: any[] = [
     HomeComponent,
@@ -28,7 +30,9 @@ export const Components: any[] = [
     CompanyMainComponent,
     PostJobComponent,
     ListJobsComponent,
-    UserListComponent
+    UserListComponent,
+    JobViewComponent,
+    UserViewComponent
 ]
 
 export {
@@ -44,5 +48,7 @@ export {
     CompanyMainComponent,
     PostJobComponent,
     ListJobsComponent,
-    UserListComponent
+    UserListComponent,
+    JobViewComponent,
+    UserViewComponent
 }
