@@ -34,6 +34,7 @@ export class AuthService {
                 )
                 .switchMap(auth => {
                     console.log("swithc : ",auth);
+                    this.af.database.object("/users/"+auth.uid)
                     return this.af.database.object("/users/"+auth.uid);
                 });
     }

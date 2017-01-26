@@ -1,0 +1,47 @@
+
+<md-card color="primary" class="card-margin" >        
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value);">
+    <md-card-header>
+      <md-card-title><h3>{{(user$ | async).firstName}}</h3></md-card-title>        
+    </md-card-header>
+    <md-card-content>
+        <md-input-container class="signup-input" >
+          <input md-input id="firstName" placeholder="Full Name" type="text" [formControl]="myForm.controls['firstName']" >
+          <md-hint *ngIf="myForm.controls['firstName'].touched && myForm.controls['firstName'].hasError('required')" 
+                      [ngStyle]="{'color': 'red'}" align="start">Required</md-hint>
+        </md-input-container>
+
+        <md-input-container class="signup-input" >
+          <input md-input id="education" placeholder="Education" type="education" [formControl]="myForm.controls['education']" >
+          <md-hint *ngIf="myForm.controls['education'].touched && myForm.controls['education'].hasError('required')" 
+                      [ngStyle]="{'color': 'red'}" align="start">Required</md-hint>
+        </md-input-container>
+
+        <md-input-container class="signup-input" >
+          <input md-input id="gpa" placeholder="GPA" type="gpa" [formControl]="myForm.controls['gpa']" >
+          <md-hint *ngIf="myForm.controls['gpa'].touched && myForm.controls['gpa'].hasError('required')" 
+                      [ngStyle]="{'color': 'red'}" align="start">Required</md-hint>
+        </md-input-container>
+
+        <md-input-container class="signup-input" >
+          <input md-input id="skills" placeholder="Skills" type="skills" [formControl]="myForm.controls['skills']" >
+          <md-hint *ngIf="myForm.controls['skills'].touched && myForm.controls['skills'].hasError('required')" 
+                      [ngStyle]="{'color': 'red'}" align="start">Required</md-hint>
+        </md-input-container>
+
+        <md-input-container class="signup-input" >
+          <input md-input id="overview" placeholder="Overview" type="overview" [formControl]="myForm.controls['overview']" >
+          <md-hint *ngIf="myForm.controls['overview'].touched && myForm.controls['overview'].hasError('required')" 
+                      [ngStyle]="{'color': 'red'}" align="start">Required</md-hint>
+        </md-input-container>
+
+        
+        <div *ngIf="isError" [ngStyle]="{'color': 'red'}" align="start">
+            {{errorMessage}}
+        </div>
+    </md-card-content>
+    <md-card-actions>
+      <button md-raised-button color="primary">Update</button>
+    </md-card-actions>
+</form>
+</md-card>

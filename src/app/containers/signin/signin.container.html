@@ -11,13 +11,13 @@
             <md-card-content >
               
               <md-input-container class="signup-input" >
-                <input md-input id="email" placeholder="Email" type="email" [formControl]="myForm.controls['email']" value="zeeshan@gmail.com" >
+                <input md-input id="email" placeholder="Email" type="email" [formControl]="myForm.controls['email']" >
                 <md-hint *ngIf="myForm.controls['email'].touched && myForm.controls['email'].hasError('required')" 
                             [ngStyle]="{'color': 'red'}" align="start">Required</md-hint>
               </md-input-container>
 
               <md-input-container class="signup-input">
-                <input md-input id="password" placeholder="Password" type="password" [formControl]="myForm.controls['password']" value="123456">
+                <input md-input id="password" placeholder="Password" type="password" [formControl]="myForm.controls['password']">
                 <md-hint *ngIf="myForm.controls['password'].touched && myForm.controls['password'].hasError('required')"
                    [ngStyle]="{'color': 'red'}" align="start">Required</md-hint>
               </md-input-container>

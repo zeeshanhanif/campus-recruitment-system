@@ -3,11 +3,11 @@ import {ActivatedRoute} from '@angular/router'
 
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  selector: 'app-company-detail',
+  templateUrl: './company-detail.component.html',
+  styleUrls: ['./company-detail.component.css']
 })
-export class ContactComponent implements OnInit {
+export class CompanyDetailComponent implements OnInit {
 
   id: String
   constructor(private route: ActivatedRoute) {

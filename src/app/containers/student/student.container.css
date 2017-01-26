@@ -10,3 +10,21 @@
 .radio-margin {
     margin-right: 20px;
 }
+
+.student-info-area{
+    width: 100%;
+    height: 100%;
+    margin-right: 20px;
+}
+
+.student-main-area{
+    width: 100%;
+    height: 100%;
+    
+}
+
+.student-detail-area{
+    width: 100%;
+    height: 100%;
+    margin-left: 20px;
+}
