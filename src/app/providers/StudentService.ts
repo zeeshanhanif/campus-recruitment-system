@@ -19,10 +19,15 @@ export class StudentService {
     }
 
     getUserList(accountType: string){
-        return this.af.database.list("/users",{query: {
+        if(accountType){
+            return this.af.database.list("/users",{query: {
                         orderByChild: 'accountType',
                         equalTo: accountType 
                     }});
+        }
+        else {
+            return this.af.database.list("/users");
+        }
     }
 
     setCurrentDisplayUser(user: User){
@@ -31,6 +36,15 @@ export class StudentService {
 
     getCurrentDisplayUser(){
         return this.currentDisplayUser;
+    }
+
+    deleteUser(user: any){
+        //console.log("in delete",user);
+        //console.log("in delete",user.uid);
+        //console.log("in delete",user.uid);
+        console.log("in delete",user.$key);
+        //console.log("in delete",user.key);
+        this.af.database.list("/users").remove(user.$key);
     }
 
 

@@ -38,4 +38,12 @@ export class AuthService {
                     return this.af.database.object("/users/"+auth.uid);
                 });
     }
+
+    logout(){
+        return Observable.fromPromise(
+                <Promise<any>>
+                this.af.auth.logout()
+                );
+
+    }
 }

@@ -12,15 +12,17 @@ export class AuthActions {
     static LOGIN_SUCCESS: string = 'LOGIN_SUCCESS';
     static REGISTER_FAILED: string = 'REGISTER_FAILED';
     static LOGIN_FAILED: string = 'LOGIN_FAILED';
-    static LOGOUT: string = 'LOGOUT';
+    
     static ISLOGGEDIN: string = 'ISLOGGEDIN';
 
     static REGISTER_FAIL: string = 'REGISTER_FAIL';
     static LOGIN_FAIL: string = 'LOGIN_FAIL';
+    
+    static SET_CURRENT_USER_DATA: string = 'SET_CURRENT_USER_DATA';
+
+    static LOGOUT: string = 'LOGOUT';
     static LOGOUT_FAIL: string = 'LOGOUT_FAIL';
     static LOGOUT_SUCCESS: string = 'LOGOUT_SUCCESS';
-
-    static SET_CURRENT_USER_DATA: string = 'SET_CURRENT_USER_DATA';
     
     static NULL: string = 'NULL';
 

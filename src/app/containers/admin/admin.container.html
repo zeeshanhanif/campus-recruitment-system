@@ -1,3 +1,13 @@
-<div>
-  Admin works
-</div>
+<md-grid-list cols="5">
+ <md-grid-tile [colspan]="1" [rowspan]="2" [style.background-color]="red">
+    <app-admin-info class="admin-info-area"></app-admin-info>
+  </md-grid-tile>
+ <md-grid-tile [colspan]="3" [rowspan]="2" [style.background-color]="blue">
+   <app-admin-main class="admin-main-area"></app-admin-main>   
+ </md-grid-tile>
+<md-grid-tile [colspan]="1" [rowspan]="2" [style.background-color]="green">
+  <!--
+  <app-student-detail class="student-detail-area"></app-student-detail>
+  -->
+</md-grid-tile>
+</md-grid-list>

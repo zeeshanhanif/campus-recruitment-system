@@ -17,6 +17,9 @@ import { UserListComponent } from './user-list/user-list.component';
 import { JobViewComponent } from './job-view/job-view.component';
 import { UserViewComponent } from './user-view/user-view.component';
 
+import { AdminInfoComponent } from './admin-info/admin-info.component';
+import { AdminMainComponent } from './admin-main/admin-main.component';
+
 export const Components: any[] = [
     HomeComponent,
     AboutComponent,
@@ -32,7 +35,9 @@ export const Components: any[] = [
     ListJobsComponent,
     UserListComponent,
     JobViewComponent,
-    UserViewComponent
+    UserViewComponent,
+    AdminInfoComponent,
+    AdminMainComponent
 ]
 
 export {
@@ -50,5 +55,7 @@ export {
     ListJobsComponent,
     UserListComponent,
     JobViewComponent,
-    UserViewComponent
+    UserViewComponent,
+    AdminInfoComponent,
+    AdminMainComponent
 }

@@ -27,7 +27,7 @@ export class SigninContainer implements OnInit {
   constructor(private router: Router, private fb: FormBuilder,
               private authService: AuthService,private authAction: AuthActions) {
     this.myForm = fb.group({
-      'email': ['company1@gmail.com',Validators.required],
+      'email': ['admin@gmail.com',Validators.required],
       'password': ['123456',Validators.required]
     });
 

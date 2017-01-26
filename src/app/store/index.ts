@@ -54,7 +54,8 @@ export class StoreModule {
       createEpicMiddleware(this.counterEpics.increment),
       createEpicMiddleware(this.counterEpics.decrement),
       createEpicMiddleware(this.authEpics.login),      
-      createEpicMiddleware(this.authEpics.getCurrentUserData)
+      createEpicMiddleware(this.authEpics.getCurrentUserData),
+      createEpicMiddleware(this.authEpics.logout)
       
 
       // More middleware here

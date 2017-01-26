@@ -13,7 +13,7 @@
     <button *ngIf="!(isLoggedin$ | async)" md-raised-button md-button [routerLink]="['signin']" color="accent" class="app-button">SignIn</button>
     <button *ngIf="!(isLoggedin$ | async)" md-raised-button [routerLink]="['signup']" color="accent" class="app-button">Signup</button>
 
-    <button *ngIf="(isLoggedin$ | async)" md-raised-button color="accent" class="app-button">Logout</button>
+    <button *ngIf="(isLoggedin$ | async)" md-raised-button color="accent" (click)="logout()" class="app-button">Logout</button>
 </md-toolbar>
 
 <div class="app-content">

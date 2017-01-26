@@ -1,0 +1,17 @@
+<md-card color="primary" class="card-margin" >        
+    <md-card-header>
+      <md-card-title><h2>Personal Info</h2></md-card-title>        
+    </md-card-header>
+    <img md-card-image src="assets/images/admin-image.png">
+    <md-card-content>
+        <h3>{{(user$ | async).firstName}}</h3>
+    </md-card-content>
+    <md-card-actions>
+      
+      
+      <button md-button color="primary" [routerLink]="['student-list']">View All Students</button><br/>
+      <button md-button color="primary" [routerLink]="['list-jobs']">View All Jobs</button><br/>
+      <button md-button color="primary" [routerLink]="['company-list']">View All Companies</button>
+      
+    </md-card-actions>
+</md-card>

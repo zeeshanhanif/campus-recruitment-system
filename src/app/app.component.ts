@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NgRedux, select } from 'ng2-redux';
 import { Observable} from 'rxjs';
+import {AuthService} from './providers';
+import { IAppState, CounterAction,AuthActions } from './store';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +12,15 @@ import { Observable} from 'rxjs';
 export class AppComponent {
   title = 'app works!';
     @select(['auth','isLoggedin']) isLoggedin$ :Observable<any>;
-    constructor() {
+    constructor(private authService: AuthService,private authAction: AuthActions) {
+    }
+
+    logout(){
+      /*
+      this.authService.logout().subscribe(val=>{
+        console.log("Logged out");
+      });
+      */
+      this.authAction.logout();
     }
 }

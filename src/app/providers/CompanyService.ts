@@ -44,6 +44,12 @@ export class CompanyService {
         return this.currentJob;
     }
 
+    deleteJob(job: any){
+        console.log(job);
+        console.log(job.$key);
+        this.af.database.list("/jobs").remove(job.$key);
+    }
+
 
 
 }

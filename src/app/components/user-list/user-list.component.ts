@@ -24,30 +24,19 @@ export class UserListComponent implements OnInit {
   users: FirebaseListObservable<any>;
   @select(['auth','user']) user$ :Observable<any>;
   accountType: string;
+  currentUrl : string;
   constructor(private studentService: StudentService,private route: ActivatedRoute) {
-      this.user$.subscribe(user=> {
-            this.accountType = user.accountType;
-            if(user.accountType=="1"){
-                this.users = this.studentService.getUserList("2");
-            }
-            else if(user.accountType=="2"){
-                this.users = this.studentService.getUserList("1");
-            }
-        })   
+      route.url.subscribe(url=>{
+        console.log("paht : ",url[0].path);
+        this.currentUrl = url[0].path;
+        if(this.currentUrl=="student-list"){
+          this.users = this.studentService.getUserList("1");
+        }
+        else {
+          this.users = this.studentService.getUserList("2");
+        }
 
-    /*
-    route.params.subscribe(params=> {
-      this.type = params['type'];
-
-        this.user$.subscribe(user=> {
-            if(this.type=="company"){
-                this.users = this.studentService.getUserList("1");
-            }
-            else if(this.type=="student"){
-                this.users = this.studentService.getUserList("2");
-            }
-        })     
-    })   */
+      });
    }
 
   ngOnInit() {
@@ -58,6 +47,10 @@ export class UserListComponent implements OnInit {
     //this.router.navigate(['../jobDetail']);
     // [routerLink]="['../job-view']"
     console.log("User = ",user);
+  }
+
+  deleteUser(user: User){
+    this.studentService.deleteUser(user);
   }
 
 }

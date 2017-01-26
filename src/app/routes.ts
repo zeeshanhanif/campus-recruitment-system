@@ -19,7 +19,7 @@ import {
     ListJobsComponent,
     UserListComponent,
     JobViewComponent,
-    UserViewComponent
+    UserViewComponent,
 } from "./components";
 
 export const AppRoutes: Routes = [
@@ -37,7 +37,14 @@ export const AppRoutes: Routes = [
     {path:'root', component: RootContainer, 
         canActivate: [LoggedInGuard],
         children: [
-            {path:'admin', component: AdminContainer},
+            {path:'admin', component: AdminContainer,
+                        children: [
+                            {path:'list-jobs', component: ListJobsComponent},
+                            {path:'student-list', component: UserListComponent},
+                            {path:'company-list', component: UserListComponent},
+                            {path:'jobDetail', component: JobViewComponent},
+                            {path:'userDetail', component: UserViewComponent}
+                        ]},
             {path:'company', component: CompanyContainer,
                         children: [
                             {path:'post-job', component: PostJobComponent},

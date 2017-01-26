@@ -27,7 +27,8 @@ export class ListJobsComponent implements OnInit {
           private router: Router) {
 
     this.user$.subscribe(user=> {
-      if(user.accountType=="2"){
+      
+      if(user && user.accountType=="2"){
         this.jobs = this.companyService.getJobList(user.uid);
       }
       else {
@@ -42,6 +43,11 @@ export class ListJobsComponent implements OnInit {
     //this.router.navigate(['../jobDetail']);
     // [routerLink]="['../job-view']"
     console.log("Job = ",job);
+  }
+
+  deleteJob(job:any){
+    console.log(job);
+    this.companyService.deleteJob(job);
   }
 
 
