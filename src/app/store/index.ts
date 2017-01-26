@@ -4,14 +4,14 @@ import { createEpicMiddleware } from 'redux-observable';
 import { combineReducers } from 'redux';
 
 // Reducers
-import { counterReducer } from './reducers';
+import { counterReducer,authReducer } from './reducers';
 
 // Actions
-import { CounterAction } from './actions';
-export { CounterAction } from './actions';
+import { CounterAction, AuthActions } from './actions';
+export { CounterAction, AuthActions } from './actions';
 
-import { CounterEpics } from './epics';
-import { ICounter } from './models';
+import { CounterEpics,AuthEpics } from './epics';
+import { ICounter, ILogin, IUser } from './models';
 
 
 //export { Observable } from 'rxjs';
@@ -20,6 +20,7 @@ import { ICounter } from './models';
 
 export interface IAppState {
   counter?: ICounter;
+  auth?: Object;
 }
 
 export const AppReducer = combineReducers<IAppState>({
@@ -31,8 +32,10 @@ export const AppReducer = combineReducers<IAppState>({
   providers: [
     // actions
     CounterAction,
+    AuthActions,
     // epics
-    CounterEpics
+    CounterEpics,
+    AuthEpics
     // other services
     //, HttpService
   ]
@@ -41,13 +44,17 @@ export class StoreModule {
   constructor(
     private ngRedux: NgRedux<IAppState>,
     private devTool: DevToolsExtension,
-    private counterEpics: CounterEpics
+    private counterEpics: CounterEpics,
+    private authEpics : AuthEpics
     // More Epics here
     
   ) {
     const middleware = [
       createEpicMiddleware(this.counterEpics.increment),
-      createEpicMiddleware(this.counterEpics.decrement)
+      createEpicMiddleware(this.counterEpics.decrement),
+      createEpicMiddleware(this.authEpics.register)
+      
+
       // More middleware here
     ];
     this.ngRedux.configureStore(

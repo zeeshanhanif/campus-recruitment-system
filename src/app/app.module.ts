@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {RouterModule, Routes} from '@angular/router'
 import { MaterialModule } from '@angular/material';
@@ -9,12 +9,15 @@ import {LoggedInGuard} from './providers/loggedin-guard';
 import {environment} from '../environments/environment';
 import { NgReduxModule } from 'ng2-redux';
 import { StoreModule } from './store';
+import { Providers } from './providers';
+import 'hammerjs';
 
 
 
 import { AppComponent } from './app.component';
 //import {HomeComponent} from './components/home/home.component'
 import {AppRoutes} from './routes';
+import {Containers} from './containers';
 import {Components} from './components';
 
 const myFirebaseAuthConfig = {
@@ -25,11 +28,13 @@ const myFirebaseAuthConfig = {
 @NgModule({
   declarations: [
     AppComponent,
+    Containers,
     Components
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(AppRoutes),
     MaterialModule.forRoot(),
@@ -37,7 +42,7 @@ const myFirebaseAuthConfig = {
     NgReduxModule,
     StoreModule
   ],
-  providers: [LoggedInGuard],
+  providers: [LoggedInGuard,Providers],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
