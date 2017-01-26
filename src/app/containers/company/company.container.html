@@ -1,3 +1,13 @@
-<div>
-  Company works
-</div>
+<md-grid-list cols="5">
+ <md-grid-tile [colspan]="1" [rowspan]="2" [style.background-color]="red">
+    <app-company-info class="company-info-area"></app-company-info>
+  </md-grid-tile>
+ <md-grid-tile [colspan]="3" [rowspan]="2" [style.background-color]="blue">
+   <app-company-main class="company-main-area"></app-company-main>   
+ </md-grid-tile>
+<md-grid-tile [colspan]="1" [rowspan]="2" [style.background-color]="green">
+  <!--
+  <app-company-detail class="student-detail-area"></app-company-detail>
+  -->
+</md-grid-tile>
+</md-grid-list>

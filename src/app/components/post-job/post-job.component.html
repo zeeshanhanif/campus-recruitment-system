@@ -1,0 +1,35 @@
+
+<md-card color="primary" class="card-margin" >        
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value);">
+    <md-card-header>
+      <md-card-title><h3>{{(user$ | async).firstName}}</h3></md-card-title>        
+    </md-card-header>
+    <md-card-content>
+        <md-input-container class="signup-input" >
+          <input md-input id="jobTitle" placeholder="Job Title" type="text" [formControl]="myForm.controls['jobTitle']" >
+          <md-hint *ngIf="myForm.controls['jobTitle'].touched && myForm.controls['jobTitle'].hasError('required')" 
+                      [ngStyle]="{'color': 'red'}" align="start">Required</md-hint>
+        </md-input-container>
+
+        <md-input-container class="signup-input" >
+          <input md-input id="salary" placeholder="Salary" type="salary" [formControl]="myForm.controls['salary']" >
+          <md-hint *ngIf="myForm.controls['salary'].touched && myForm.controls['salary'].hasError('required')" 
+                      [ngStyle]="{'color': 'red'}" align="start">Required</md-hint>
+        </md-input-container>
+
+        <md-input-container class="signup-input" >
+          <input md-input id="jobDescription" placeholder="Job Description" type="jobDescription" [formControl]="myForm.controls['jobDescription']" >
+          <md-hint *ngIf="myForm.controls['jobDescription'].touched && myForm.controls['jobDescription'].hasError('required')" 
+                      [ngStyle]="{'color': 'red'}" align="start">Required</md-hint>
+        </md-input-container>
+ 
+        <div *ngIf="isError" [ngStyle]="{'color': 'red'}" align="start">
+            {{errorMessage}}
+        </div>
+    </md-card-content>
+    <md-card-actions>
+      <span class="space-filler"></span>
+      <button md-raised-button color="accent">Post</button>
+    </md-card-actions>
+</form>
+</md-card>

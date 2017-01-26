@@ -1,0 +1,14 @@
+.signup-input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.card-margin {
+    margin: 20px;
+    width: 600px;
+    
+
+}
+.space-filler{
+    flex: 1 1 auto;
+}

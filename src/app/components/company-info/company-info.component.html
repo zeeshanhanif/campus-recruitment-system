@@ -1,0 +1,16 @@
+<md-card color="primary" class="card-margin" >        
+    <md-card-header>
+      <md-card-title><h2>Personal Info</h2></md-card-title>        
+    </md-card-header>
+    <img md-card-image src="assets/images/company-image.png">
+    <md-card-content>
+        <h3>{{(user$ | async).firstName}}</h3>
+    </md-card-content>
+    <md-card-actions>
+
+      <button md-button color="primary" [routerLink]="['post-job']">Post Jobs</button>
+      <button md-button color="primary" [routerLink]="['list-jobs']">My Posted Jobs</button>
+      <button md-button color="primary" [routerLink]="['student-list']">Students</button>
+      
+    </md-card-actions>
+</md-card>

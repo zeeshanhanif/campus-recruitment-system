@@ -24,13 +24,19 @@ export class StudentDetailComponent implements OnInit {
   @select(['auth','user']) user$ :Observable<any>;
   constructor(private fb: FormBuilder, private route: ActivatedRoute,
         private studentService: StudentService) {
-    this.myForm = fb.group({
-      'firstName': ['',Validators.required],
-      'education': ['',Validators.required],
-      'gpa': ['',Validators.required],
-      'skills': ['',Validators.required],
-      'overview': ['',Validators.required]
-    });
+
+
+    this.user$.subscribe(user=> {
+      this.myForm = fb.group({
+        'firstName': [user.firstName?user.firstName:'',Validators.required],
+        'education': [user.education?user.education:'',Validators.required],
+        'gpa': [user.gpa?user.gpa:'',Validators.required],
+        'skills': [user.skills?user.skills:'',Validators.required],
+        'overview': [user.overview?user.overview:'',Validators.required]
+      });
+    })
+
+    
     /*
     route.params.subscribe(params=> {
       this.id = params['id'];

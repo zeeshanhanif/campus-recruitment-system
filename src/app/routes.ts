@@ -14,7 +14,10 @@ import {
     AboutComponent,
     ProtectedComponent,
     ParentComponent,
-    StudentDetailComponent
+    StudentDetailComponent,
+    PostJobComponent,
+    ListJobsComponent,
+    StudentListComponent
 } from "./components";
 
 export const AppRoutes: Routes = [
@@ -33,7 +36,12 @@ export const AppRoutes: Routes = [
         canActivate: [LoggedInGuard],
         children: [
             {path:'admin', component: AdminContainer},
-            {path:'company', component: CompanyContainer},
+            {path:'company', component: CompanyContainer,
+                        children: [
+                            {path:'post-job', component: PostJobComponent},
+                            {path:'list-jobs', component: ListJobsComponent},
+                            {path:'student-list', component: StudentListComponent}
+                        ]},
             {path:'student', component: StudentContainer,
                         children: [
                             {path:'student-detail', component: StudentDetailComponent}

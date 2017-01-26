@@ -24,12 +24,4 @@ export class CompanyContainer implements OnInit {
 
   ngOnInit() {
   }
-
-  onSubmit(value: String): void {
-    console.log('you submitted value: ', value);
-    this.authService.login(value).subscribe(val=> {
-      console.log("user : ",val);
-      this.router.navigate(['/protected']);
-    })
-  }
 }

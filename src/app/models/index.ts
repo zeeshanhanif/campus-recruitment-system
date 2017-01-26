@@ -1,9 +1,12 @@
 import { User } from './user';
+import { Job } from './job';
 
 export const Models: any[] = [
-    User
+    User,
+    Job,
 ]
 
 export {
-    User
+    User,
+    Job
 }
