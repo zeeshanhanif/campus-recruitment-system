@@ -23,13 +23,38 @@ export class ListJobsComponent implements OnInit {
 
   jobs: FirebaseListObservable<any>;
   @select(['auth','user']) user$ :Observable<any>;
-  constructor(private companyService: CompanyService) {
+  allJobs: boolean;
+  constructor(private companyService: CompanyService,private route: ActivatedRoute) {
 
     this.user$.subscribe(user=> {
-      this.jobs = this.companyService.getJobList(user.uid);
+      if(user.accountType=="2"){
+        this.jobs = this.companyService.getJobList(user.uid);
+      }
+      else {
+        this.jobs = this.companyService.getJobList(null);
+      }
+      
     })
     
+/*
+     route.params.subscribe(params=> {
+      this.all = params['all'];
+
+        this.user$.subscribe(user=> {
+            if(this.type=="company"){
+                this.users = this.studentService.getUserList("1");
+            }
+            else if(this.type=="student"){
+                this.users = this.studentService.getUserList("2");
+            }
+        })     
+    })*/
   }
+
+
+  
+      
+   
 
   ngOnInit() {
   }

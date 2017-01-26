@@ -17,11 +17,13 @@ export class StudentService {
         this.af.database.object("/users/"+userId).update(userDetail);
     }
 
-    getStudentsList(){
+    getUserList(accountType: string){
         return this.af.database.list("/users",{query: {
                         orderByChild: 'accountType',
-                        equalTo: '1' 
+                        equalTo: accountType 
                     }});
     }
+
+
    
 }

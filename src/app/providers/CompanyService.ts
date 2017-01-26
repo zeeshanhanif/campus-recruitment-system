@@ -13,7 +13,8 @@ export class CompanyService {
         //this.users = this.af.database.object("/users")
     }
     postJob(userId: string, value:any){
-        this.af.database.list("/jobs/"+userId).push(value)
+        value.companyId = userId;
+        this.af.database.list("/jobs").push(value)
         .then(val=>{
             console.log("after post ",val);
             //this.router.navigate(['./../list-jobs']);
@@ -22,7 +23,17 @@ export class CompanyService {
     }
 
     getJobList(companyId: any){
-        return this.af.database.list("/jobs/"+companyId)
+        if(companyId){
+            return this.af.database.list("/jobs", {query: {
+                        orderByChild: 'companyId',
+                        equalTo: companyId 
+                    }})
+        }
+        else{
+            return this.af.database.list("/jobs");
+        }
+       
+        
     }
 
 

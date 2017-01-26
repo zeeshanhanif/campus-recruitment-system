@@ -12,7 +12,7 @@ import { CompanyMainComponent } from './company-main/company-main.component';
 
 import { PostJobComponent } from './post-job/post-job.component';
 import { ListJobsComponent } from './list-jobs/list-jobs.component';
-import { StudentListComponent } from './student-list/student-list.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 
 export const Components: any[] = [
@@ -28,7 +28,7 @@ export const Components: any[] = [
     CompanyMainComponent,
     PostJobComponent,
     ListJobsComponent,
-    StudentListComponent
+    UserListComponent
 ]
 
 export {
@@ -44,5 +44,5 @@ export {
     CompanyMainComponent,
     PostJobComponent,
     ListJobsComponent,
-    StudentListComponent
+    UserListComponent
 }
