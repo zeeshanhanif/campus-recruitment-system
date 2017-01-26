@@ -4,7 +4,7 @@
     </md-card-header>
     <img md-card-image src="assets/images/company-image.png">
     <md-card-content>
-        <h3>{{(user$ | async).firstName}}</h3>
+        <h3>{{(user$ | async)?.firstName}}</h3>
     </md-card-content>
     <md-card-actions>
 

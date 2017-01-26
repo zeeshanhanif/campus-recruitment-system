@@ -4,10 +4,9 @@
     </md-card-header>
     <img md-card-image src="assets/images/user-image.jpg">
     <md-card-content>
-        <h3>{{(user$ | async).firstName}}</h3>
+        <h3>{{(user$ | async)?.firstName}}</h3>
     </md-card-content>
-    <md-card-actions>
-      
+    <md-card-actions>      
       
       <button md-button color="primary" [routerLink]="['student-detail']">Edit Detail</button><br/>
       <button md-button color="primary" [routerLink]="['list-jobs']">View All Jobs</button><br/>
